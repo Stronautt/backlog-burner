@@ -1,0 +1,8 @@
+<div class="how-card">
+  <div class="how-num">{{ step().num }}</div>
+  <div class="how-label">{{ step().label }}</div>
+  <div class="how-desc">{{ step().description }}</div>
+  @if (showConnector()) {
+    <span class="how-connector">&rarr;</span>
+  }
+</div>

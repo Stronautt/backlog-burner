@@ -1,0 +1,12 @@
+<div class="ticker">
+  @for (item of items(); track item.time + item.project) {
+    <div class="ticker-row">
+      <span class="ticker-time">{{ item.time }}</span>
+      <span class="ticker-type" [class]="item.type">{{ item.type === 'shipped' ? 'shipped' : item.type }}</span>
+      <span>
+        <span class="ticker-project">{{ item.project }}</span>
+        &mdash; {{ item.description }}
+      </span>
+    </div>
+  }
+</div>
