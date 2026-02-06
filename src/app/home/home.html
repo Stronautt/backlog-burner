@@ -1,0 +1,103 @@
+<!-- HERO -->
+<section class="relative pt-25 pb-20 text-center mx-auto section-container">
+  <div
+    class="inline-flex items-center gap-1.5 font-mono text-[11px] text-green bg-green-dim border border-green/20 px-3 py-1 rounded-full mb-7 tracking-wide">
+    <span class="w-1.5 h-1.5 bg-green rounded-full animate-[pulse_2s_ease-in-out_infinite]"></span>
+    {{ 'hero.badge' | transloco }}
+  </div>
+  <h1 class="font-mono text-[44px] max-md:text-[28px] font-bold leading-[1.15] tracking-[-1.5px] mb-5">
+    {{ 'hero.headingPrefix' | transloco }}<br />
+    <span class="text-accent">{{ 'hero.headingAccent' | transloco }}</span>
+  </h1>
+  <p class="text-[17px] max-md:text-[15px] text-text-dim mx-auto mb-9 leading-[1.7] font-light">
+    {{ 'hero.subtitle1' | transloco }}<br />
+    {{ 'hero.subtitle2' | transloco }}
+  </p>
+  <div class="flex gap-3 justify-center mb-12 flex-wrap">
+    <button pButton>{{ 'hero.exploreCta' | transloco }}</button>
+    <button pButton severity="secondary">{{ 'hero.listCta' | transloco }} →</button>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="font-mono text-[10px] text-accent uppercase tracking-[1.5px] opacity-70 mb-1.5">
+    {{ 'pipeline.title' | transloco }}
+  </div>
+  <div class="flex items-center justify-center flex-wrap gap-2 mb-4">
+    @for (step of pipelineSteps; track step.key) {
+    <div class="flex items-center gap-2">
+      <div class="pipe-node" [class.pipe-node-highlight]="step.highlight">
+        {{ 'pipeline.' + step.key | transloco }}
+      </div>
+      @if (!step.isLast) {
+      <div class="font-mono text-text-muted text-[11px] opacity-40 hidden md:block">&rarr;</div>
+      }
+    </div>
+    }
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="section-container pb-15">
+  <p-fluid>
+    <div class="search-bar">
+      <div class="px-3.5 text-text-muted text-sm">&Colon;</div>
+      <input pInputText type="text" [placeholder]="'search.placeholder' | transloco" class="search-input" />
+      <div class="search-filters hidden md:flex">
+        <p-selectbutton [options]="filterOptions" [ngModel]="selectedFilter()"
+          (ngModelChange)="selectedFilter.set($event)" optionLabel="label" optionValue="value" size="small"
+          styleClass="search-select">
+          <ng-template #item let-item>
+            {{ item.label | transloco }}
+          </ng-template>
+        </p-selectbutton>
+      </div>
+    </div>
+  </p-fluid>
+</section>
+
+<!-- PROJECTS -->
+<section class="section-container pb-20">
+  <div class="flex items-center justify-between mb-5">
+    <div class="section-title">
+      {{ 'projects.title' | transloco }}
+      <span class="section-count">{{ projects.length }}</span>
+    </div>
+    <div class="hidden sm:block">
+      <p-selectbutton [options]="viewOptions" [ngModel]="selectedView()" (ngModelChange)="selectedView.set($event)"
+        optionLabel="label" optionValue="value" size="small">
+        <ng-template #item let-item>
+          {{ item.label | transloco }}
+        </ng-template>
+      </p-selectbutton>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    @for (project of projects; track project.name) {
+    <app-project-card [project]="project" />
+    }
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-container pb-20">
+  <div class="flex items-center justify-between mb-5">
+    <div class="section-title">{{ 'howItWorks.title' | transloco }}</div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    @for (step of howSteps; track step.num; let last = $last) {
+    <app-how-step [step]="step" [showConnector]="!last" />
+    }
+  </div>
+</section>
+
+<!-- LIVE TICKER -->
+<section class="section-container pb-20">
+  <div class="flex items-center justify-between mb-5">
+    <div class="section-title">
+      {{ 'activity.title' | transloco }}
+      <span class="inline-block w-1.5 h-1.5 bg-green rounded-full animate-[pulse_2s_ease-in-out_infinite]"></span>
+    </div>
+  </div>
+  <app-activity-ticker [items]="activityItems" />
+</section>

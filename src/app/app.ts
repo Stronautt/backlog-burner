@@ -1,13 +1,21 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './shared/navbar/navbar';
+import { FooterComponent } from './shared/footer/footer';
+import { APP_NAME } from './core/app-name.token';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-
 export class App {
-  protected readonly title = signal('backlog-burner');
+  private readonly title = inject(Title);
+  private readonly appName = inject(APP_NAME);
+
+  constructor() {
+    this.title.setTitle(this.appName);
+  }
 }

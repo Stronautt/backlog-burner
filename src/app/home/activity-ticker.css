@@ -1,0 +1,38 @@
+:host ::ng-deep .ticker-card.p-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+:host ::ng-deep .ticker-card.p-card .p-card-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ticker-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-dim);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ticker-row:last-child {
+  border-bottom: none;
+}
+
+.ticker-time {
+  color: var(--color-text-muted);
+  font-size: 10px;
+  min-width: 50px;
+}
+
+.ticker-project {
+  color: var(--color-text);
+  font-weight: 500;
+}

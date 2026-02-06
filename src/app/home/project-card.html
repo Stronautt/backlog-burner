@@ -1,0 +1,44 @@
+<p-card [styleClass]="'project-card' + (project().featured ? ' featured' : '')">
+  <div class="card-top">
+    <div class="card-identity">
+      <div class="card-avatar" [class]="project().avatarColor ?? ''">{{ project().avatar }}</div>
+      <div>
+        <div class="card-name">{{ project().name }}</div>
+        <div class="card-author">{{ project().author }}</div>
+      </div>
+    </div>
+    <p-tag severity="warn" [value]="'#' + project().rank" />
+  </div>
+  <div class="card-desc">{{ project().description }}</div>
+  <div class="card-stats">
+    <div class="stat">&diams; <span class="val">{{ project().tokens }}</span> {{ 'projects.tokens' | transloco }}</div>
+    <div class="stat">&DoubleVerticalBar; <span class="val">{{ project().features }}</span> {{ 'projects.features' | transloco }}</div>
+    <div class="stat">&check; <span class="val">{{ project().shipped }}</span> {{ 'projects.shipped' | transloco }}</div>
+  </div>
+  @if (project().tags; as tags) {
+    <div class="card-tags">
+      @for (tag of tags; track tag) {
+        <p-tag severity="secondary" [value]="tag" [rounded]="true" />
+      }
+    </div>
+  }
+  @if (project().featured && project().backlog; as backlog) {
+    <div class="backlog-preview">
+      <div class="backlog-title">{{ 'projects.topBacklog' | transloco }}</div>
+      @for (item of backlog; track item.feature) {
+        <div class="backlog-item">
+          <div class="backlog-item-left">
+            <div class="priority-bar">
+              <div class="priority-fill" [class]="item.priority"></div>
+            </div>
+            <span class="backlog-feature">{{ item.feature }}</span>
+          </div>
+          <div class="backlog-votes">
+            <span>&blacktriangle; {{ item.votes }}</span>
+            <button pButton [label]="'projects.boost' | transloco" severity="warn" [text]="true" size="small" class="boost-btn"></button>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</p-card>

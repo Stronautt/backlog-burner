@@ -10,8 +10,8 @@ BacklogBurner is an open-source platform for transparent, decentralized prioriti
 
 - **Dev server:** `bun start` (runs `ng serve`)
 - **Build:** `bun run build` (production build with SSR)
-- **Run tests:** `bun test` (Vitest via Angular CLI)
-- **Run single test:** `bun test -- --include='src/app/path/to/file.spec.ts'`
+- **Run tests:** `bun run test` (Vitest via Angular CLI)
+- **Run single test:** `bun run test -- --include='src/app/path/to/file.spec.ts'`
 - **SSR production server:** `bun run serve:ssr:backlog-burner` (port 4000)
 
 ## Architecture
@@ -23,7 +23,7 @@ The app uses Angular SSR with an Express server (`src/server.ts`). Two bootstrap
 - **Browser:** `src/main.ts` → `app.config.ts` (router, PrimeNG Aura theme, client hydration with event replay)
 - **Server:** `src/main.server.ts` → `app.config.server.ts` (merges browser config with server rendering + server routes)
 
-Server routes (`app.routes.server.ts`) control render mode per route (currently `RenderMode.Prerender` for all). Client routes live in `app.routes.ts`.
+Server routes (`app.routes.server.ts`) control render mode per route (currently `RenderMode.Server` for all). Client routes live in `app.routes.ts`. Build uses `NG_BUILD_PARTIAL_SSR=1` to skip build-time route extraction (routes are resolved at request time).
 
 ### Standalone Components
 

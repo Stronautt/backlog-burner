@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+:host ::ng-deep .how-card.p-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  height: 100%;
+}
+
+:host ::ng-deep .how-card.p-card .p-card-body {
+  padding: 24px 20px;
+}
+
+.how-num {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-accent);
+  opacity: 0.25;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.how-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.how-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.how-connector {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .how-connector {
+    display: none;
+  }
+}

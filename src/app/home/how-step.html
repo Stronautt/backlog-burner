@@ -1,0 +1,8 @@
+<p-card styleClass="how-card">
+  <div class="how-num">{{ step().num }}</div>
+  <div class="how-label">{{ 'howItWorks.' + step().key | transloco }}</div>
+  <div class="how-desc">{{ 'howItWorks.' + step().key + 'Desc' | transloco }}</div>
+  @if (showConnector()) {
+    <span class="how-connector">&rarr;</span>
+  }
+</p-card>

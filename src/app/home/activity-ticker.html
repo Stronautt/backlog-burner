@@ -1,0 +1,12 @@
+<p-card styleClass="ticker-card">
+  @for (item of items(); track item.time + item.project) {
+    <div class="ticker-row">
+      <span class="ticker-time">{{ item.time }}</span>
+      <p-tag [severity]="typeSeverity(item.type)" [value]="item.type" />
+      <span>
+        <span class="ticker-project">{{ item.project }}</span>
+        &mdash; {{ item.description }}
+      </span>
+    </div>
+  }
+</p-card>

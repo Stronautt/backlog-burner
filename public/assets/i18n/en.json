@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "explore": "Explore",
+    "howItWorks": "How it works",
+    "docs": "Docs",
+    "github": "GitHub",
+    "submitProject": "Submit project"
+  },
+  "hero": {
+    "badge": "open source · self-hosted on this platform",
+    "headingPrefix": "Fund the features",
+    "headingAccent": "you actually need",
+    "subtitle1": "Open-source projects with community-driven backlogs.",
+    "subtitle2": "Prioritize features with tokens, hold devs accountable, get what you paid for.",
+    "exploreCta": "Explore projects",
+    "listCta": "List your project"
+  },
+  "pipeline": {
+    "title": "How it works",
+    "proposeFeature": "Propose feature",
+    "communityValidates": "Community validates",
+    "boostPriority": "Boost priority",
+    "devImplements": "Dev implements",
+    "verifiedPaid": "Verified & paid"
+  },
+  "search": {
+    "placeholder": "Search projects, features, or authors...",
+    "all": "All",
+    "trending": "Trending",
+    "new": "New",
+    "mostFunded": "Most funded"
+  },
+  "projects": {
+    "title": "Trending projects",
+    "viewCards": "Cards",
+    "viewList": "List",
+    "viewCompact": "Compact",
+    "tokens": "tokens",
+    "features": "features",
+    "shipped": "shipped",
+    "topBacklog": "Top backlog",
+    "boost": "boost"
+  },
+  "howItWorks": {
+    "title": "How the platform works",
+    "propose": "Propose",
+    "proposeDesc": "Submit a feature request following the project's Definition of Ready template.",
+    "validate": "Validate",
+    "validateDesc": "Auto-screening filters spam & dupes. Community validators verify quality & scope.",
+    "boost": "Boost",
+    "boostDesc": "Buy tokens to raise priority. Hit the threshold — the dev commits to shipping it.",
+    "verify": "Verify and payout",
+    "verifyDesc": "Community confirms delivery. Funds release on approval. No delivery — full refund."
+  },
+  "activity": {
+    "title": "Live activity"
+  },
+  "footer": {
+    "poweredBy": "running on",
+    "docs": "Docs",
+    "api": "API",
+    "github": "GitHub",
+    "terms": "Terms"
+  },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "lang": {
+    "switchTo": "UA"
+  }
+}
